@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "/home/xingxinliao/lab/tool/include/sqlite3.h"
+#include <sqlite3.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/ipc.h>
@@ -9,6 +9,17 @@
 
 #define DEBUG(fmt, ...) printf("[DEBUG] " fmt "\n", ##__VA_ARGS__)
 #define ERROR(fmt, ...) fprintf(stderr, "[ERROR] " fmt "\n", ##__VA_ARGS__)
+
+int enable_wal_mode(sqlite3 *db) {
+    char *errmsg = NULL;
+    if (sqlite3_exec(db, "PRAGMA journal_mode=WAL;", NULL, NULL, &errmsg) != SQLITE_OK) {
+        ERROR("Failed to enable WAL mode: %s", errmsg);
+        sqlite3_free(errmsg);
+        return -1;
+    }
+    DEBUG("WAL mode enabled successfully!");
+    return 0;
+}
 
 
 
