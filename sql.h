@@ -1,7 +1,7 @@
 #ifndef SQL_H
 #define SQL_H
 
-#include <sqlite3.h>
+#include "/home/xingxinliao/lab/tool/include/sqlite3.h"
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>	

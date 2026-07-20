@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sqlite3.h>
+#include "/home/xingxinliao/lab/tool/include/sqlite3.h"
 #include <string.h>
 #include <sys/types.h>
 #include <sys/ipc.h>

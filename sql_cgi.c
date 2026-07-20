@@ -19,7 +19,7 @@ void V(int semid, int num) {
   struct sembuf op = {num, 1, 0};
   semop(semid, &op, 1);
 }
-
+//将数据写入共享内存
 int send_data_memery(sqlite3 *db, const char *table_name) {
   printf("B: 后台服务启动，正在监听 FIFO 管道等待 CGI 请求 (防粘连模式)...\n");
   mkfifo(FIFO_PATH, 0666); // 确保管道存在
